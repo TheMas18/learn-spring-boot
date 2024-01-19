@@ -62,4 +62,9 @@ public class User_JPA {
 		this.status = status;
 	}
 
+	@Override
+	public String toString() {
+		return "User_JPA [id=" + id + ", name=" + name + ", city=" + city + ", status=" + status + "]";
+	}
+
 }
