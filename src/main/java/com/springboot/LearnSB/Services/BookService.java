@@ -2,6 +2,7 @@ package com.springboot.LearnSB.Services;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.springframework.stereotype.Component;
 
@@ -28,4 +29,35 @@ public class BookService {
 		book = list.stream().filter(e -> e.getId() == id).findFirst().get();
 		return book;
 	}
+
+	// adding the book
+	public void addBook(Book b) {
+		list.add(b);
+	}
+
+	// delete book
+	public void deleteBook(int bookId) {
+//		list.stream().filter(book -> {
+//			if (book.getId() != bookId) {
+//				return true;
+//			}else {
+//				return false;
+//			}
+//		}).collect(Collectors.toList());
+
+		// OR
+		list=list.stream().filter(book -> book.getId() != bookId).collect(Collectors.toList());
+	}
+	
+	//update book
+	public void updateBook(Book book,int bookId) {
+		list.stream().map(b->{
+			if(b.getId()==bookId) {
+				b.setTitle(book.getTitle());
+				b.setAuthor(book.getAuthor());
+			}
+			return b;
+		}).collect(Collectors.toList());
+	}
+
 }
