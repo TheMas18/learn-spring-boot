@@ -82,12 +82,31 @@ public class LearnSbApplication {
 //		userRepository.deleteAll(allUsers);
 		
 		
+		//Using Custom Finder methods
+		//https://docs.spring.io/spring-data/jpa/reference/jpa/query-methods.html
 		
+//		List<User_JPA> users = userRepository.findByName("Mas");
+//		List<User_JPA> users = userRepository.findByNameAndCity("Mas","Navi Mumbai");
+//		users.forEach(u->{
+//			System.out.println(u);
+//		});
 		
+//		List<User_JPA> allUser = userRepository.getAllUser();
+//		allUser.forEach(e->{
+//			System.out.println(e);
+//		});
 		
+//		List<User_JPA> allUser = userRepository.getUserByName("Mas","Navi Mumbai");
+//		allUser.forEach(e->{
+//			System.out.println(e);
+//		});
+//		
 		
-		
-		
+		//Native Query
+		List<User_JPA> allUser = userRepository.getUser();
+		allUser.forEach(e->{
+			System.out.println(e);
+		});
 		
 		
 		
